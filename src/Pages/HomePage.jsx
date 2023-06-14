@@ -11,31 +11,28 @@ function HomePage() {
     const canvas = useRef() 
     const width  = window.innerWidth;
     const height  = window.innerHeight; 
-    let context = null;
-    const crawCanvas = ()=>{
-        context = canvas.current.getContext("2d");
+    
+     
+    useEffect(() => {   
         const image = new Image();
         image.src = bg
         image.onload = () => {
-          context.drawImage(image, 0, 0, width, height); 
+          canvas.current.getContext("2d").drawImage(image, 0, 0, width, height); 
         }; 
-    }
-    useEffect(() => {  
-      crawCanvas()
-    }, []);
+    }, [width,height]);
     const createText = (text)=>{
       
-      if(context !== null){   
-        context.font = "50px Arial";
-        context.textAlign='right';
-        context.fillText(text,width-80 , height-80);
+      if(canvas.current.getContext("2d") !== null){   
+        canvas.current.getContext("2d").font = "50px Arial";
+        canvas.current.getContext("2d").textAlign='right';
+        canvas.current.getContext("2d").fillText(text,width-80 , height-80);
       }
     }
     const handleChangeText = (e)=>{ 
       setTimeout(()=>{
         const image = new Image();
         image.src = bg 
-        context.drawImage(image, 0, 0, width, height);  
+        canvas.current.getContext("2d").drawImage(image, 0, 0, width, height);  
         createText(e.target.value)  
       },2000)
     }
