@@ -1,17 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import DowloadPage from './Pages/DowloadPage';
+import HomePage from './Pages/HomePage';
+
 
 function App() {
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-         
-        
-          xin chào liff
-        
-      </header>
-    </div>
+    <BrowserRouter>   
+        <Routes>  
+          <Route path="/" element={<HomePage/>}/>  
+          <Route path="/dowload" element={<DowloadPage/>}/>  
+        </Routes>  
+  </BrowserRouter> 
   );
 }
 
