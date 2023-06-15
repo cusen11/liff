@@ -13,13 +13,16 @@ function HomePage() {
     const height  = window.innerHeight;
     const [disable, setDisable] = useState(true)
     const [loadings, setLoadings] = useState([]);
+    const [url, setUrl] = useState()
      
     useEffect(() => {   
         const image = new Image();
         image.src = bg
         image.onload = () => {
-          canvas.current.getContext("2d").drawImage(image, 0, 0, width, height); 
+          canvas.current.getContext("2d").drawImage(image, 0, 0, width, height);
+          setUrl(canvas.current.toDataURL()) 
         }; 
+        
     }, [width,height]);
     const createText = (text)=>{
       
@@ -37,11 +40,13 @@ function HomePage() {
           canvas.current.getContext("2d").drawImage(image, 0, 0, width, height);  
           createText(e.target.value) 
           setDisable(false)
+          setUrl(canvas.current.toDataURL())
         },500)
       }else{
         setTimeout(()=>{
           setDisable(true)
         },500)
+        setUrl(canvas.current.toDataURL())
       }
       
     }
@@ -68,12 +73,14 @@ function HomePage() {
     }
     return (
         <>
+            <img src={url} alt="" />
             <div style={{textAlign:'center',marginBottom:'20px'}}>
               <h3>Enter your signature</h3>
               <Input onChange={(e)=> handleChangeText(e)} style={{width:'80%',margin:'10px auto'}} placeholder="Enter your signature" />
               <Button type='primary' loading={loadings[1]} disabled={disable} onClick={()=>downloadImage()}>View Image</Button> 
             </div>
-            <canvas ref={canvas} width={width} height={height} />
+            <canvas hidden ref={canvas} width={width} height={height} />
+            
             
         </>
     );
