@@ -74,8 +74,8 @@ function HomePage1() {
     return (
         <>
             
-            <div style={{textAlign:'center',overflow:'hidden',width: '100vw',position:'relative'}}>  
-              <img src={url} style={{position: 'absolute',bottom:'0', left: '50%',transform: 'translate(-50%)',width:'85%'}}  alt="" />        
+            <div style={{textAlign:'center',overflow:'hidden',width: '100vw',height:'80vh',position:'relative'}}>  
+              <img src={url} style={{position: 'absolute',bottom:'0', left: '50%',transform: 'translate(-50%)',width:'100%'}}  alt="" />        
               
             </div>
             <div style={{textAlign:'center'}}>  
