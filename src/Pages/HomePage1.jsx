@@ -74,7 +74,7 @@ function HomePage1() {
     return (
         <>
             
-            <div style={{textAlign:'center',padding:'20px',overflow:'hidden'}}>  
+            <div style={{textAlign:'center',padding:'20px',overflow:'hidden',width: '100vw',height: '100vw',position:'relative'}}>  
               <img src={url} width='85%'  alt="" />        
               <h3>Enter your signature</h3>
               <Input onChange={(e)=> handleChangeText(e)} style={{width:'85%',margin:'10px auto'}} placeholder="Enter your signature" /><br/>
