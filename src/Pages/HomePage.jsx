@@ -72,9 +72,9 @@ function HomePage() {
       }, 2000); 
     }
     return (
-        <div style={{height:height+200,position:'relative'}}>
+        <>
             <img src={url} alt="" />
-            <div style={{textAlign:'center',marginBottom:'20px',position:'absolute',bottom: 0,left: '50%',transform:'translate(-50%,0)'}}>
+            <div style={{textAlign:'center',marginBottom:'20px',position:'absolute',    left: '50%',transform: 'translate(-50%, 0px)',top: '2%',background: '#cccc',padding: '10px',width: '70%',borderRadius: '20px'}}>          
               <h3>Enter your signature</h3>
               <Input onChange={(e)=> handleChangeText(e)} style={{width:'80%',margin:'10px auto'}} placeholder="Enter your signature" />
               <Button type='primary' loading={loadings[1]} disabled={disable} onClick={()=>downloadImage()}>View Image</Button> 
@@ -82,7 +82,7 @@ function HomePage() {
             <canvas hidden ref={canvas} width={width} height={height} />
             
             
-        </div>
+        </>
     );
 }
 
