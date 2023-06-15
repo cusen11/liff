@@ -77,7 +77,7 @@ function HomePage1() {
             <div style={{textAlign:'center',padding:'20px',overflow:'hidden'}}>  
               <img src={url} width='85%'  alt="" />        
               <h3>Enter your signature</h3>
-              <Input onChange={(e)=> handleChangeText(e)} style={{width:'80%',margin:'10px auto'}} placeholder="Enter your signature" />
+              <Input onChange={(e)=> handleChangeText(e)} style={{width:'85%',margin:'10px auto'}} placeholder="Enter your signature" /><br/>
               <Button type='primary' loading={loadings[1]} disabled={disable} onClick={()=>downloadImage()}>View Image</Button> 
             </div>
             <canvas hidden ref={canvas} width={width} height={height} /> 
