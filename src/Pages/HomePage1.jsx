@@ -75,7 +75,7 @@ function HomePage1() {
         <>
             
             <div style={{textAlign:'center',overflow:'hidden',width: '100vw',position:'relative'}}>  
-              <img src={url} width='85%' style={{position: 'absolute',bottom:'0', left: '50%',transform: 'translate(-50%)'}}  alt="" />        
+              <img src={url} style={{position: 'absolute',bottom:'0', left: '50%',transform: 'translate(-50%)',width:'85%'}}  alt="" />        
               
             </div>
             <div style={{textAlign:'center'}}>  
