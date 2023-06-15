@@ -70,7 +70,7 @@ function HomePage() {
     return (
         <>
             <canvas ref={canvas} width={width} height={height} />
-            <div style={{textAlign:'center'}}>
+            <div style={{textAlign:'center',position:'absolute',top: '10%',left: '50%',transform: 'translate(-50%,-50%)'}}>
               <h3>Enter your signature</h3>
               <Input onChange={(e)=> handleChangeText(e)} style={{width:'80%',margin:'10px auto'}} placeholder="Enter your signature" />
               <Button type='primary' loading={loadings[1]} disabled={disable} onClick={()=>downloadImage()}>View Image</Button> 
