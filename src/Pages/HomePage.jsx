@@ -73,7 +73,7 @@ function HomePage() {
     }
     return (
         <>
-            <img src={url} alt="" width='100%' />
+            <img src={url} alt=""  />
             <div style={{textAlign:'center',marginBottom:'20px',position:'absolute',    left: '50%',transform: 'translate(-50%, 0px)',top: '2%',background: '#cccc',padding: '10px',width: '70%',borderRadius: '20px'}}>          
               <h3>Enter your signature</h3>
               <Input onChange={(e)=> handleChangeText(e)} style={{width:'80%',margin:'10px auto'}} placeholder="Enter your signature" />
