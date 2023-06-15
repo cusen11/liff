@@ -1,4 +1,4 @@
-import React from 'react'; 
+import React, { useState } from 'react'; 
 import bg from '../Assets/images/bg.png';
 import { useRef } from 'react';
 import { useEffect } from 'react';
@@ -10,7 +10,8 @@ function HomePage() {
     const navigate = useNavigate();
     const canvas = useRef() 
     const width  = window.innerWidth;
-    const height  = window.innerHeight; 
+    const height  = window.innerHeight;
+    const [disable, setDisable] = useState(true)
     
      
     useEffect(() => {   
@@ -29,22 +30,33 @@ function HomePage() {
       }
     }
     const handleChangeText = (e)=>{ 
-      setTimeout(()=>{
-        const image = new Image();
-        image.src = bg 
-        canvas.current.getContext("2d").drawImage(image, 0, 0, width, height);  
-        createText(e.target.value)  
-      },2000)
+      if(e.target.value.length >= 1){
+        setTimeout(()=>{
+          const image = new Image();
+          image.src = bg 
+          canvas.current.getContext("2d").drawImage(image, 0, 0, width, height);  
+          createText(e.target.value) 
+          setDisable(false)
+        },500)
+      }else{
+        setTimeout(()=>{
+          setDisable(true)
+        },500)
+      }
+      
     }
     const downloadImage = ()=>{  
-      navigate('/dowload', { state: { link: canvas.current.toDataURL() } });      
+      navigate('/dowload', { state: { link: canvas.current.toDataURL() } });   
+         
     }
     return (
         <>
             <canvas ref={canvas} width={width} height={height} />
-    
-            <Input onChange={(e)=> handleChangeText(e)} placeholder="Enter your signature" />
-            <Button onClick={()=>downloadImage()}>Dowload Image</Button> 
+            <div style={{textAlign:'center'}}>
+              <h3>Enter your signature</h3>
+              <Input onChange={(e)=> handleChangeText(e)} style={{width:'80%',margin:'10px auto'}} placeholder="Enter your signature" />
+              <Button type='primary' disabled={disable} onClick={()=>downloadImage()}>Dowload Image</Button> 
+            </div>
         </>
     );
 }
