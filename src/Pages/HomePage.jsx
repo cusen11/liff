@@ -26,7 +26,7 @@ function HomePage() {
       if(canvas.current.getContext("2d") !== null){   
         canvas.current.getContext("2d").font = "50px Arial";
         canvas.current.getContext("2d").textAlign='right';
-        canvas.current.getContext("2d").fillText(text,width-80 , height-80);
+        canvas.current.getContext("2d").fillText(text,width/2 , height/2);
       }
     }
     const handleChangeText = (e)=>{ 
