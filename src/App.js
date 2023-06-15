@@ -2,6 +2,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import DowloadPage from './Pages/DowloadPage';
 import HomePage from './Pages/HomePage';
+import HomePage1 from './Pages/HomePage1';
 
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     <BrowserRouter>   
         <Routes>  
           <Route path="/" element={<HomePage/>}/>  
+          <Route path="/1" element={<HomePage1/>}/>  
           <Route path="/dowload" element={<DowloadPage/>}/>  
         </Routes>  
   </BrowserRouter> 
