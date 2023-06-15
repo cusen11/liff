@@ -73,7 +73,7 @@ function HomePage() {
             <div style={{textAlign:'center'}}>
               <h3>Enter your signature</h3>
               <Input onChange={(e)=> handleChangeText(e)} style={{width:'80%',margin:'10px auto'}} placeholder="Enter your signature" />
-              <Button type='primary' loading={loadings[1]} disabled={disable} onClick={()=>downloadImage()}>Dowload Image</Button> 
+              <Button type='primary' loading={loadings[1]} disabled={disable} onClick={()=>downloadImage()}>View Image</Button> 
             </div>
         </>
     );
