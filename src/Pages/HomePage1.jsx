@@ -74,13 +74,18 @@ function HomePage1() {
     return (
         <>
             
-            <div style={{textAlign:'center',padding:'20px',overflow:'hidden',width: '100vw',height: '100vw',position:'relative'}}>  
-              <img src={url} width='85%'  alt="" />        
+            <div style={{textAlign:'center',overflow:'hidden',width: '100vw',position:'relative'}}>  
+              <img src={url} width='85%' style={{position: 'absolute',bottom:'0', left: '50%',transform: 'translate(-50%)'}}  alt="" />        
+              
+            </div>
+            <div style={{textAlign:'center'}}>  
+                    
               <h3>Enter your signature</h3>
               <Input onChange={(e)=> handleChangeText(e)} style={{width:'85%',margin:'10px auto'}} placeholder="Enter your signature" /><br/>
               <Button type='primary' loading={loadings[1]} disabled={disable} onClick={()=>downloadImage()}>View Image</Button> 
+              <canvas hidden ref={canvas} width={width} height={height} /> 
             </div>
-            <canvas hidden ref={canvas} width={width} height={height} /> 
+            
         </>
     );
 }
