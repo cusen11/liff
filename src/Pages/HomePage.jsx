@@ -12,7 +12,7 @@ function HomePage() {
     const width  = window.innerWidth;
     const height  = window.innerHeight;
     const [disable, setDisable] = useState(true)
-    
+    const [loadings, setLoadings] = useState([]);
      
     useEffect(() => {   
         const image = new Image();
@@ -45,9 +45,27 @@ function HomePage() {
       }
       
     }
-    const downloadImage = ()=>{  
-      navigate('/dowload', { state: { link: canvas.current.toDataURL() } });   
-         
+    const enterLoading = (index) => {
+      setLoadings((prevLoadings) => {
+        const newLoadings = [...prevLoadings];
+        newLoadings[index] = true;
+        return newLoadings;
+      });
+  
+      setTimeout(() => {
+        setLoadings((prevLoadings) => {
+          const newLoadings = [...prevLoadings];
+          newLoadings[index] = false;
+          return newLoadings;
+        });
+      }, 2000);
+    };
+    const downloadImage = ()=>{   
+      enterLoading(1)
+      setTimeout(() => {
+        navigate('/dowload', { state: { link: canvas.current.toDataURL() } }); 
+      }, 2000);
+      
     }
     return (
         <>
@@ -55,7 +73,7 @@ function HomePage() {
             <div style={{textAlign:'center'}}>
               <h3>Enter your signature</h3>
               <Input onChange={(e)=> handleChangeText(e)} style={{width:'80%',margin:'10px auto'}} placeholder="Enter your signature" />
-              <Button type='primary' disabled={disable} onClick={()=>downloadImage()}>Dowload Image</Button> 
+              <Button type='primary' loading={loadings[1]} disabled={disable} onClick={()=>downloadImage()}>Dowload Image</Button> 
             </div>
         </>
     );
